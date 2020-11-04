@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <StartWorkingDirectory>$(MSBuildProjectDirectory)</StartWorkingDirectory>
     <RootNamespace>Alvarado_P2_AP2</RootNamespace>
   </PropertyGroup>
 
