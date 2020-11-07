@@ -103,7 +103,7 @@ namespace Alvarado_P2_AP2.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<double>("Balance")
+                    b.Property<float>("Balance")
                         .HasColumnType("REAL");
 
                     b.Property<int>("ClienteId")
@@ -112,7 +112,7 @@ namespace Alvarado_P2_AP2.Migrations
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
 
-                    b.Property<double>("Monto")
+                    b.Property<float>("Monto")
                         .HasColumnType("REAL");
 
                     b.HasKey("VentaId");
@@ -125,50 +125,50 @@ namespace Alvarado_P2_AP2.Migrations
                         new
                         {
                             VentaId = 1,
-                            Balance = 1000.0,
+                            Balance = 1000f,
                             ClienteId = 1,
                             Fecha = new DateTime(2020, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Monto = 1000.0
+                            Monto = 1000f
                         },
                         new
                         {
                             VentaId = 2,
-                            Balance = 800.0,
+                            Balance = 800f,
                             ClienteId = 1,
                             Fecha = new DateTime(2020, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Monto = 900.0
+                            Monto = 900f
                         },
                         new
                         {
                             VentaId = 3,
-                            Balance = 2000.0,
+                            Balance = 2000f,
                             ClienteId = 2,
                             Fecha = new DateTime(2020, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Monto = 2000.0
+                            Monto = 2000f
                         },
                         new
                         {
                             VentaId = 4,
-                            Balance = 1800.0,
+                            Balance = 1800f,
                             ClienteId = 2,
                             Fecha = new DateTime(2020, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Monto = 1900.0
+                            Monto = 1900f
                         },
                         new
                         {
                             VentaId = 5,
-                            Balance = 3000.0,
+                            Balance = 3000f,
                             ClienteId = 3,
                             Fecha = new DateTime(2020, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Monto = 3000.0
+                            Monto = 3000f
                         },
                         new
                         {
                             VentaId = 6,
-                            Balance = 1900.0,
+                            Balance = 1900f,
                             ClienteId = 3,
                             Fecha = new DateTime(2020, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Monto = 2900.0
+                            Monto = 2900f
                         });
                 });
 

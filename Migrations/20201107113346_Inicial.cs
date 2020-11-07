@@ -45,8 +45,8 @@ namespace Alvarado_P2_AP2.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Fecha = table.Column<DateTime>(nullable: false),
                     ClienteId = table.Column<int>(nullable: false),
-                    Monto = table.Column<double>(nullable: false),
-                    Balance = table.Column<double>(nullable: false)
+                    Monto = table.Column<float>(nullable: false),
+                    Balance = table.Column<float>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -104,32 +104,32 @@ namespace Alvarado_P2_AP2.Migrations
             migrationBuilder.InsertData(
                 table: "Ventas",
                 columns: new[] { "VentaId", "Balance", "ClienteId", "Fecha", "Monto" },
-                values: new object[] { 1, 1000.0, 1, new DateTime(2020, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1000.0 });
+                values: new object[] { 1, 1000f, 1, new DateTime(2020, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1000f });
 
             migrationBuilder.InsertData(
                 table: "Ventas",
                 columns: new[] { "VentaId", "Balance", "ClienteId", "Fecha", "Monto" },
-                values: new object[] { 2, 800.0, 1, new DateTime(2020, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 900.0 });
+                values: new object[] { 2, 800f, 1, new DateTime(2020, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 900f });
 
             migrationBuilder.InsertData(
                 table: "Ventas",
                 columns: new[] { "VentaId", "Balance", "ClienteId", "Fecha", "Monto" },
-                values: new object[] { 3, 2000.0, 2, new DateTime(2020, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2000.0 });
+                values: new object[] { 3, 2000f, 2, new DateTime(2020, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2000f });
 
             migrationBuilder.InsertData(
                 table: "Ventas",
                 columns: new[] { "VentaId", "Balance", "ClienteId", "Fecha", "Monto" },
-                values: new object[] { 4, 1800.0, 2, new DateTime(2020, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1900.0 });
+                values: new object[] { 4, 1800f, 2, new DateTime(2020, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1900f });
 
             migrationBuilder.InsertData(
                 table: "Ventas",
                 columns: new[] { "VentaId", "Balance", "ClienteId", "Fecha", "Monto" },
-                values: new object[] { 5, 3000.0, 3, new DateTime(2020, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3000.0 });
+                values: new object[] { 5, 3000f, 3, new DateTime(2020, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3000f });
 
             migrationBuilder.InsertData(
                 table: "Ventas",
                 columns: new[] { "VentaId", "Balance", "ClienteId", "Fecha", "Monto" },
-                values: new object[] { 6, 1900.0, 3, new DateTime(2020, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2900.0 });
+                values: new object[] { 6, 1900f, 3, new DateTime(2020, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2900f });
 
             migrationBuilder.CreateIndex(
                 name: "IX_CobrosDetalle_CobroId",

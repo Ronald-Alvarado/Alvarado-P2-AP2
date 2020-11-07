@@ -12,30 +12,7 @@ namespace Alvarado_P2_AP2.BLL
     {
         public static bool Guardar(Cobros cobro)
         {
-            if (!Existe(cobro.CobroId))
-                return Insertar(cobro);
-            else
-                return Modificar(cobro);
-        }
-
-        private static bool Existe(int id)
-        {
-            bool Existencia = false;
-            Contexto contexto = new Contexto();
-
-            try
-            {
-                Existencia = contexto.Cobros.Any(x => x.CobroId == id);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-            return Existencia;
+           return Insertar(cobro);
         }
 
         private static bool Insertar(Cobros cobro)
@@ -45,6 +22,12 @@ namespace Alvarado_P2_AP2.BLL
 
             try
             {
+                foreach(var item in cobro.cobrosDetalle)
+                {
+                    item.Venta = contexto.Ventas.Find(item.VentaId);
+                    item.Venta.Balance -= item.Cobrado;
+                    contexto.Entry(item.Venta).State = EntityState.Modified;
+                }
                 contexto.Cobros.Add(cobro);
                 Insertado = (contexto.SaveChanges() > 0);
             }
@@ -59,34 +42,7 @@ namespace Alvarado_P2_AP2.BLL
             return Insertado;
         }
 
-        private static bool Modificar(Cobros cobro)
-        {
-            bool Modificado = false;
-            Contexto contexto = new Contexto();
-
-            try
-            {
-                contexto.Database.ExecuteSqlRaw($"Delete FROM CobrosDetalle Where CobroId = {cobro.CobroId}");
-
-                foreach (var item in cobro.cobrosDetalle)
-                {
-                    contexto.Entry(item).State = EntityState.Added;
-                }
-
-                contexto.Entry(cobro).State = EntityState.Modified;
-                Modificado = (contexto.SaveChanges() > 0);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-            return Modificado;
-        }
-
+       
         public static bool Eliminar(int id)
         {
             bool Eliminado = false;
@@ -118,10 +74,7 @@ namespace Alvarado_P2_AP2.BLL
 
             try
             {
-                cobro = contexto.Cobros
-                    .Where(e => e.CobroId == id)
-                    .Include(e => e.cobrosDetalle)
-                    .FirstOrDefault();
+                cobro = contexto.Cobros.Where(c => c.CobroId == id).Include(c => c.cobrosDetalle).FirstOrDefault();
             }
             catch (Exception)
             {
